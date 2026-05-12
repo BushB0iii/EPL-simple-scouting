@@ -48,7 +48,7 @@ class ViewFactory:
                     create_bento_card(
                         title="PLAYERS HUB",
                         subtitle="Browse all players",
-                        icon=ft.icons.PERSON_SEARCH,
+                        icon="search",
                         on_click=lambda e: on_navigate_players(),
                         stats_label="Total Players",
                         stats_value=f"{player_count}+" if player_count > 0 else "Loading..."
@@ -56,7 +56,7 @@ class ViewFactory:
                     create_bento_card(
                         title="SCOUTING",
                         subtitle="Find your ideal profile",
-                        icon=ft.icons.TUNE,
+                        icon="tune",
                         on_click=lambda e: on_navigate_scouting(),
                         stats_label="Position Groups",
                         stats_value="4"
@@ -64,7 +64,7 @@ class ViewFactory:
                     create_bento_card(
                         title="MY WATCHLIST",
                         subtitle="Track your targets",
-                        icon=ft.icons.STAR,
+                        icon="star",
                         on_click=lambda e: on_navigate_watchlist(),
                         stats_label="Watchlisted",
                         stats_value=f"{club_count}+" if club_count > 0 else "0"
@@ -121,7 +121,7 @@ class ViewFactory:
                 on_change=lambda e: on_search(e.control.value)
             ),
             ft.IconButton(
-                icon=ft.icons.FILTER_LIST,
+                icon="filter_list",
                 icon_color=COLORS['primary'],
                 tooltip="Filters"
             )
@@ -162,7 +162,7 @@ class ViewFactory:
         # Pagination
         pagination = ft.Row([
             ft.IconButton(
-                icon=ft.icons.CHEVRON_LEFT,
+                icon="chevron_left",
                 disabled=current_page <= 1,
                 icon_color=COLORS['primary'],
                 on_click=lambda e: None  # Will be handled by parent
@@ -170,7 +170,7 @@ class ViewFactory:
             ft.Text(f"Page {current_page} of {total_pages}", 
                    color=COLORS['text_primary']),
             ft.IconButton(
-                icon=ft.icons.CHEVRON_RIGHT,
+                icon="chevron_right",
                 disabled=current_page >= total_pages,
                 icon_color=COLORS['primary'],
                 on_click=lambda e: None  # Will be handled by parent
@@ -409,7 +409,7 @@ class ViewFactory:
                 on_change=lambda e: None  # Handled by parent
             ).build(),
             ft.IconButton(
-                icon=ft.icons.DELETE_SWEEP,
+                icon="delete_sweep",
                 icon_color=COLORS['error'],
                 tooltip="Delete All",
                 on_click=lambda e: on_delete_all()
@@ -453,7 +453,7 @@ class ViewFactory:
                             lambda r, pid=item['player_id']: on_rating_change(pid, r)
                         )),
                         ft.DataCell(ft.IconButton(
-                            icon=ft.icons.DELETE,
+                            icon="delete",
                             icon_color=COLORS['error'],
                             on_click=lambda e, pid=item['player_id']: on_delete_player(pid)
                         )),
@@ -527,7 +527,7 @@ class ViewFactory:
             ], spacing=2),
             ft.Container(expand=True),
             ft.IconButton(
-                icon=ft.icons.STAR if is_in_watchlist else ft.icons.STAR_BORDER,
+                icon="star" if is_in_watchlist else "star_border",
                 icon_color=COLORS['primary'],
                 tooltip="Add to Watchlist",
                 on_click=lambda e: on_add_to_watchlist()
@@ -543,7 +543,7 @@ class ViewFactory:
                     height=200,
                     fit=ft.ImageFit.COVER,
                     error_content=ft.Container(
-                        content=ft.Icon(ft.icons.PERSON, size=80, color=COLORS['secondary']),
+                        content=ft.Icon("person", size=80, color=COLORS['secondary']),
                         bgcolor=COLORS['surface'],
                         border_radius=100,
                         width=200,
