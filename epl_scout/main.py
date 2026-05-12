@@ -19,6 +19,11 @@ import flet as ft
 from pathlib import Path
 from typing import Dict, List, Any, Optional
 import time
+import ssl
+import urllib.request
+
+# Fix SSL certificate verification issue
+ssl._create_default_https_context = ssl._create_unverified_context
 
 # Import layers
 from models.entities import PlayerInfo, PlayerStats
@@ -580,4 +585,4 @@ def main(page: ft.Page):
 
 
 if __name__ == "__main__":
-    ft.app(target=main, view=ft.AppView.FLET_APP)
+    ft.run(target=main, view=ft.AppView.FLET_APP)
