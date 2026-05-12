@@ -321,7 +321,7 @@ class EPLScoutApp:
         return ft.Container(
             content=ft.Column([
                 ft.Container(height=100),
-                ft.Icon(ft.icons.ERROR_OUTLINE, size=80, color=COLORS['error']),
+                ft.Icon("error_outline", size=80, color=COLORS['error']),
                 ft.Container(height=20),
                 ft.Text(message, size=18, color=COLORS['text_primary'], text_align=ft.TextAlign.CENTER),
                 ft.Container(height=20),

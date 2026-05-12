@@ -125,7 +125,7 @@ def create_star_rating(rating: int, on_click: Callable) -> ft.Row:
         is_filled = i <= rating
         stars.append(
             ft.IconButton(
-                icon=ft.icons.STAR if is_filled else ft.icons.STAR_BORDER,
+                icon="star" if is_filled else "star_border",
                 icon_color=COLORS['primary'] if is_filled else COLORS['secondary'],
                 icon_size=20,
                 on_click=lambda e, r=i: on_click(r)
@@ -141,7 +141,7 @@ def create_empty_state(
 ) -> ft.Container:
     """Create empty state component"""
     content = [
-        ft.Icon(ft.icons.SEARCH_OFF, size=60, color=COLORS['secondary']),
+        ft.Icon("search_off", size=60, color=COLORS['secondary']),
         ft.Container(height=20),
         ft.Text(message, size=16, color=COLORS['text_secondary'], text_align=ft.TextAlign.CENTER),
     ]
@@ -199,7 +199,7 @@ def create_search_field(
     """Create search text field with debounce capability"""
     return ft.TextField(
         hint_text=hint_text,
-        prefix_icon=ft.icons.SEARCH,
+        prefix_icon="search",
         bgcolor=COLORS['surface'],
         color=COLORS['text_primary'],
         border_color=COLORS['secondary'],
@@ -256,7 +256,7 @@ def create_club_dropdown(
 def create_back_button(on_click: Callable) -> ft.IconButton:
     """Create back navigation button"""
     return ft.IconButton(
-        icon=ft.icons.ARROW_BACK,
+        icon="arrow_back",
         icon_color=COLORS['text_primary'],
         on_click=on_click
     )
